@@ -1,5 +1,5 @@
 # Grade Bot
-## Version: Beta 1.0.0 
+## Version: Beta 1.0 
 Grade Bot Goes Public!
 ## Access StudentVUE within Discord
 View your grades, schedule, and more in Discord! This bot is entirely open source to maintain transparency, and demonstrate how Discord's API can be used to access other external API'S.
@@ -15,8 +15,26 @@ Now you need to install the bot. Here are the steps to clone the bot, and get it
 - Install Node.js and NPM
 - Clone the repository and install the dependencies
 ```bash
-git clone 
-cd gradebot
+git clone https://github.com/thereal-cc/Grade-Bot.git 
+cd Grade-Bot
 npm install
 ```
+- Create a new file called `.env` in the root directory of the project. This file will contain your bot's token and client id. The file should look like this:
+```
+TOKEN=Bot's Token
+CLIENT_ID=Bot's Client ID
+GUILD_ID=Server's Guild ID
+```
+- Now it's time to run the bot. To begin, go to the root directory of the project. If you want to run the bot in development mode, run the following command:
+```bash
+npm run dev
+```
+Otherwise, run the following command in production mode
+```bash
+npm run start
+```
+- Hopefully your bot is now up and running, and you can start using it! If you have any issues, feel free to open an issue on the repository.
 ## Bugs/Contributing
+If you find any bugs, or have any suggestions, feel free to open an issue on the repository. If you want to contribute, feel free to open a pull request.
+## License
+GNU General Public License v3.0

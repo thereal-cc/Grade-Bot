@@ -1,7 +1,7 @@
 {
-  "name": "studentvue-discord",
+  "name": "grade-bot",
   "version": "1.0.0",
-  "description": "",
+  "description": "Bot to access StudentVUE within Discord",
   "main": "src/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

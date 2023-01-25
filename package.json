@@ -1,6 +1,6 @@
 {
   "name": "grade-bot",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Bot to access StudentVUE within Discord",
   "main": "src/main.js",
   "scripts": {
@@ -15,6 +15,7 @@
     "@discordjs/rest": "^1.5.0",
     "discord.js": "^14.7.1",
     "dotenv": "^16.0.3",
+    "moment": "^2.29.4",
     "sequelize": "^6.28.0",
     "sqlite3": "^5.1.4",
     "studentvue": "^2.0.0"

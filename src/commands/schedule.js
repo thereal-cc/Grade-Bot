@@ -33,8 +33,8 @@ module.exports = class ScheduleSlashCommand extends BaseSlashCommand {
       const scheduleEmbed = new EmbedBuilder()
             .setColor(0x0099FF)
             .setTitle(`Schedule for ${schoolName} School`)
-            .setThumbnail('https://play-lh.googleusercontent.com/43vg9yqJ6keUxcLmlhILmpAGVG5q1XTpKtkUDMiggTWvzD7j_vi8bdqRI23dWnEy7A=w480-h960')
             .setDescription(`Type: ${schedule.today[0].bellScheduleName}`)
+            .setThumbnail('https://freesvg.org/img/robot-head.png')
             .setTimestamp()
             .setFooter({ text: `Requested by ${interaction.user.username}`, iconUrl: '' });
 

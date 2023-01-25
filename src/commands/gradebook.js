@@ -15,6 +15,7 @@ module.exports = class GradebookSlashCommand extends BaseSlashCommand {
             discordId: interaction.user.id,
           },
         });
+        
         if (!user) return interaction.reply({ content: 'Please login with /login before using this command.', ephemeral: true});
         
         // Login to StudentVue & Null Check
@@ -32,8 +33,8 @@ module.exports = class GradebookSlashCommand extends BaseSlashCommand {
         const gradebookEmbed = new EmbedBuilder()
                 .setColor(0x0099FF)
                 .setTitle(`Gradebook for ${user.username}`)
-                .setThumbnail('https://play-lh.googleusercontent.com/43vg9yqJ6keUxcLmlhILmpAGVG5q1XTpKtkUDMiggTWvzD7j_vi8bdqRI23dWnEy7A=w480-h960')
                 .setDescription('Marking Period: ' + markingPeriod)
+                .setThumbnail('https://freesvg.org/img/robot-head.png')
                 .setTimestamp()
                 .setFooter({ text: `Requested by ${interaction.user.username}`, iconUrl: '' });
 

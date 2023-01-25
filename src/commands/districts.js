@@ -12,8 +12,8 @@ module.exports = class DistrictsSlashCommand extends BaseSlashCommand {
         const districtsNearZip = await StudentVue.findDistricts(interaction.options.getString("zipcode"));
         // Build the embed
         const embed = new EmbedBuilder()
-            .setColor(0x00AE86)
-            .setThumbnail('https://play-lh.googleusercontent.com/43vg9yqJ6keUxcLmlhILmpAGVG5q1XTpKtkUDMiggTWvzD7j_vi8bdqRI23dWnEy7A=w480-h960')
+            .setColor(0x0099FF)
+            .setThumbnail('https://freesvg.org/img/robot-head.png')
             .setTitle("Districts Near " + interaction.options.getString("zipcode"))
             .setDescription("Here are the closest districts to the provided zipcode: ")
             .setTimestamp()

@@ -13,12 +13,10 @@ module.exports = class LoginSlashCommand extends BaseSlashCommand {
         const password = interaction.options.getString("password");
         const domain = interaction.options.getString("domain");
 
-        const student = await StudentVue.login(domain, { username: username, password: password }).catch(() => null);
-
         // Check if the student is valid
-        if (!student) {
-            return await interaction.reply({ content: 'Invalid StudentVUE credentials.' });
-        }
+        const student = await StudentVue.login(domain, { username: username, password: password });
+        if (!student) return await interaction.reply({ content: 'Invalid StudentVUE credentials.' });
+    
         try {
             const user = await Users.create({
                 discordId: interaction.user.id,

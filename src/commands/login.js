@@ -1,9 +1,9 @@
-const BaseSlashCommand = require('../utils/BaseSlashCommand.js');
-const { SlashCommandBuilder } = require('discord.js');
-const StudentVue = require('studentvue/lib/StudentVue/StudentVue.js');
-const { Users } = require('../models/database.js');
+import BaseSlashCommand from '../utils/BaseSlashCommand.js';
+import { SlashCommandBuilder, EmbedBuilder } from 'discord.js';
+import StudentVue from 'studentvue/lib/StudentVue/StudentVue.js';
+import { Users } from '../models/database.js';
 
-module.exports = class LoginSlashCommand extends BaseSlashCommand {
+export default class LoginSlashCommand extends BaseSlashCommand {
     constructor() {
       super('login');
     }

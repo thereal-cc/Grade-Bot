@@ -1,10 +1,11 @@
 // Imports
-const { Client, Collection, Events, GatewayIntentBits, Routes } = require('discord.js');
-const { registerCommands, registerSubcommands } = require('./utils/registry.js');
-const { Users } = require('./models/database.js');
+import { Client, Collection, Events, GatewayIntentBits, Routes } from 'discord.js';
+import { registerCommands, registerSubcommands } from './utils/registry.js';
+import { Users } from './models/database.js';
+import dotenv from 'dotenv';
 
 // Load .env
-require('dotenv').config();
+dotenv.config();
 const { TOKEN, CLIENT_ID, GUILD_ID } = process.env;
 
 // Create Client and set intents
@@ -16,6 +17,7 @@ const client = new Client({
     ],
     rest: { version: '10' } 
 });
+
 client.rest.setToken(TOKEN);
 
 // Client Turns On

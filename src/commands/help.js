@@ -1,7 +1,7 @@
-const BaseSlashCommand = require('../utils/BaseSlashCommand.js');
-const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
+import BaseSlashCommand from '../utils/BaseSlashCommand.js';
+import { SlashCommandBuilder, EmbedBuilder } from 'discord.js';
 
-module.exports = class HelpSlashCommand extends BaseSlashCommand {
+export default class HelpSlashCommand extends BaseSlashCommand {
     constructor() {
       super('help');
     }

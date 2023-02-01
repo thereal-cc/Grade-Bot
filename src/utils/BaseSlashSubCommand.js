@@ -1,6 +1,6 @@
 import Collection from 'discord.js';
 
-module.exports = class BaseSlashSubcommand {
+export default class BaseSlashSubcommand {
     constructor(name, groups, subcommands) {
       this._name = name;
       this._groups = groups;

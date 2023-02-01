@@ -1,8 +1,13 @@
-const path = require('path');
-const fs = require('fs/promises');
-const { Collection } = require('discord.js');
+import path from 'path';
+import fs from 'fs/promises';
+import { Collection } from 'discord.js';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 
-async function registerCommands(client, dir = '') {
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+export async function registerCommands(client, dir = '') {
   const filePath = path.join(__dirname, dir);
   const files = await fs.readdir(filePath);
   for (const file of files) {
@@ -11,15 +16,15 @@ async function registerCommands(client, dir = '') {
     if (stat.isDirectory())
       await registerCommands(client, path.join(dir, file));
     if (file.endsWith('.js')) {
-      const Command = require(path.join(filePath, file));
-      const cmd = new Command();
+      const Command = await import(path.join(filePath, file));
+      const cmd = new Command.default();
       client.slashCommands.set(cmd.name, cmd);
       console.log(`Registering ${cmd.name}`);
     }
   }
 }
 
-async function registerSubcommands(client, dir = '../subcommands') {
+export async function registerSubcommands(client, dir = '../subcommands') {
   const filePath = path.join(__dirname, dir);
   const files = await fs.readdir(filePath);
   for (const file of files) {
@@ -32,12 +37,12 @@ async function registerSubcommands(client, dir = '../subcommands') {
       const indexFilePos = subcommandDirectoryFiles.indexOf('index.js');
       subcommandDirectoryFiles.splice(indexFilePos, 1);
       try {
-        const BaseSubcommand = require(path.join(filePath, file, 'index.js'));
-        const subcommand = new BaseSubcommand();
+        const BaseSubcommand = await import(path.join(filePath, file, 'index.js'));
+        const subcommand = new BaseSubcommand.default();
         client.slashSubcommands.set(file, subcommand);
         for (const group of subcommand.groups) {
           for (const command of group.subcommands) {
-            const SubcommandClass = require(path.join(
+            const SubcommandClass = await import(path.join(
               filePath,
               file,
               group.name,
@@ -47,13 +52,13 @@ async function registerSubcommands(client, dir = '../subcommands') {
             if (subcommandGroupMap) {
               subcommandGroupMap.set(
                 command,
-                new SubcommandClass(file, group.name, command)
+                new SubcommandClass.default(file, group.name, command)
               );
             } else {
               subcommandGroupMap = new Collection();
               subcommandGroupMap.set(
                 command,
-                new SubcommandClass(file, group.name, command)
+                new SubcommandClass.default(file, group.name, command)
               );
             }
             subcommand.groupCommands.set(group.name, subcommandGroupMap);
@@ -62,8 +67,8 @@ async function registerSubcommands(client, dir = '../subcommands') {
           subcommandDirectoryFiles.splice(fileIndex, 1);
         }
         for (const subcommandFile of subcommandDirectoryFiles) {
-          const Subcommand = require(path.join(filePath, file, subcommandFile));
-          const cmd = new Subcommand(file, null);
+          const Subcommand = await import(path.join(filePath, file, subcommandFile));
+          const cmd = new Subcommand.default(file, null);
           const subcommandInstance = client.slashSubcommands.get(file);
           subcommandInstance.groupCommands.set(cmd.name, cmd);
         }
@@ -73,8 +78,3 @@ async function registerSubcommands(client, dir = '../subcommands') {
     }
   }
 }
-
-module.exports = { 
-  registerCommands, 
-  registerSubcommands 
-};

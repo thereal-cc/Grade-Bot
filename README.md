@@ -1,13 +1,11 @@
 # Grade-Bot
-## Version: Beta 1.1 
-Grade-Bot Goes Public!
+## Version: Beta 1.2 
+Grade-Bot Is Thinking...
 ## Access StudentVUE within Discord
 View your grades, schedule, and more in Discord! This bot is entirely open source to maintain transparency, and demonstrate how Discord's API can be used to access other external API'S.
-## (Beta 1.1 Update)
-- View your student information (May not work for all schools)
-- Logout of StudentVUE
-- Help Command
-- New Logo
+## (Beta 1.2 Update)
+- Switched over from CommonJS to ES6 Modules
+- Schedule now shows start/end times
 ## Features
 - View your overall grades for each class
 - View your schedule

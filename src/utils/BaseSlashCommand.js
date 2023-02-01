@@ -1,4 +1,4 @@
-module.exports = class BaseSlashCommand {
+export default class BaseSlashCommand {
     constructor(name) {
       this._name = name;
     }

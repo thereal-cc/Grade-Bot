@@ -1,4 +1,4 @@
-module.exports = class BaseSubcommandExecutor {
+export default class BaseSubcommandExecutor {
     constructor(baseCommand, group, name) {
       this._baseCommand = baseCommand;
       this._group = group;

@@ -1,9 +1,9 @@
-const BaseSlashCommand = require('../utils/BaseSlashCommand.js');
-const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
-const StudentVue = require('studentvue/lib/StudentVue/StudentVue.js');
-const { Users } = require('../models/database.js');
+import BaseSlashCommand from '../utils/BaseSlashCommand.js';
+import { SlashCommandBuilder, EmbedBuilder } from 'discord.js';
+import StudentVue from 'studentvue/lib/StudentVue/StudentVue.js';
+import { Users } from '../models/database.js';
 
-module.exports = class StudentInfoSlashCommand extends BaseSlashCommand {
+export default class StudentInfoSlashCommand extends BaseSlashCommand {
     constructor() {
       super('studentinfo');
     }
@@ -15,11 +15,10 @@ module.exports = class StudentInfoSlashCommand extends BaseSlashCommand {
         }});
       if (!user) return interaction.reply({ content: 'Please login with /login before using this command.', ephemeral: true});
           
-      // Login to StudentVue & Null Check
       const student = await StudentVue.login(user.domain, { username: user.username, password: user.password});
       if (!student) return await interaction.reply({ content: 'Invalid StudentVUE credentials.', ephemeral: true});
 
-      // Check if StudentInfo works
+      // Student Info might not work
       try {
         const info = await student.studentInfo();
       } catch (err) {
@@ -27,7 +26,6 @@ module.exports = class StudentInfoSlashCommand extends BaseSlashCommand {
         return await interaction.reply({ content: 'There was an error getting your info', ephemeral: true});
       }
 
-      // Get info if it is working
       const info = await student.studentInfo();
       const studentEmbed = new EmbedBuilder()
         .setColor(0x0099FF)

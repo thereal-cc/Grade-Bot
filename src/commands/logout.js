@@ -1,8 +1,8 @@
-const BaseSlashCommand = require('../utils/BaseSlashCommand.js');
-const { SlashCommandBuilder } = require('discord.js');
-const { Users } = require('../models/database.js');
+import BaseSlashCommand from '../utils/BaseSlashCommand.js';
+import { SlashCommandBuilder, EmbedBuilder } from 'discord.js';
+import { Users } from '../models/database.js';
 
-module.exports = class LogoutSlashCommand extends BaseSlashCommand {
+export default class LogoutSlashCommand extends BaseSlashCommand {
     constructor() {
         super('logout');
     }

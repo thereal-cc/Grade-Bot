@@ -1,7 +1,7 @@
 /*
 Database Model and Initialization
 */
-const Sequelize = require('sequelize');
+import Sequelize from 'sequelize';
 
 const sequelize = new Sequelize('database', 'username', 'password', {
     host: 'localhost',
@@ -11,7 +11,7 @@ const sequelize = new Sequelize('database', 'username', 'password', {
 });
 
 // Create a function to initialize the model
-initialize = (sequelize, DataTypes) => {
+const initialize = (sequelize, DataTypes) => {
     return sequelize.define('Users', {
         id: {
             type: DataTypes.INTEGER,
@@ -40,8 +40,4 @@ initialize = (sequelize, DataTypes) => {
 };
 
 // Initialize Models
-const Users = initialize(sequelize, Sequelize.DataTypes);
-
-module.exports = {
-    Users
-}
+export const Users = initialize(sequelize, Sequelize.DataTypes);

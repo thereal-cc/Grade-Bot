@@ -37,7 +37,7 @@ npm install
 
 - Create a new file called `.env` in the root directory of the project. This file will contain your bot's token and client id. The file should look like this:
 
-```
+```.env
 TOKEN=Bot's Token
 CLIENT_ID=Bot's Client ID
 GUILD_ID=Server's Guild ID

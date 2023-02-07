@@ -13,8 +13,8 @@ export default class HelpSlashCommand extends BaseSlashCommand {
             .setDescription('Grade-Bot is a Discord bot that allows you to use StudentVUE within Discord.')
             .setThumbnail('https://freesvg.org/img/robot-head.png')
             .addFields(
-                { name: '/districts', value: 'Get a list of all supported districts near a zipcode.' },
-                { name: '/login', value: 'Login to StudentVUE.' },
+                { name: '/districts', value: 'Get a list of all supported districts near the provided zipcode.' },
+                { name: '/login or /logout', value: 'Login & Logout of StudentVUE.' },
                 { name: '/studentinfo', value: 'Get Student Information.' },
                 { name: '/schedule', value: 'Get Student Schedule.'},
                 { name: '/gradebook', value: 'Get Student Grades.' },

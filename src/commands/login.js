@@ -1,5 +1,5 @@
 import BaseSlashCommand from '../utils/BaseSlashCommand.js';
-import { SlashCommandBuilder, EmbedBuilder } from 'discord.js';
+import { SlashCommandBuilder } from 'discord.js';
 import StudentVue from 'studentvue/lib/StudentVue/StudentVue.js';
 import { Users } from '../models/database.js';
 

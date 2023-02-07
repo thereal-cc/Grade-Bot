@@ -19,12 +19,14 @@ export default class ScheduleSlashCommand extends BaseSlashCommand {
       const student = await StudentVue.login(user.domain, { username: user.username, password: user.password});
       if (!student) return await interaction.reply({ content: 'Invalid StudentVUE credentials.', ephemeral: true});
 
+      await interaction.deferReply("Getting Schedule...");
+
       const schedule = await student.schedule();
       if (schedule.today.length === 0) return await interaction.reply({ content: 'No schedule found, Must be a day off!.', ephemeral: true});
 
       const schoolName = String(schedule.today[0].name);
       const periods = schedule.today[0].classes;
-      const rooms = schedule.classes;
+      const roomNums = schedule.classes;
 
       const scheduleEmbed = new EmbedBuilder()
             .setColor(0x0099FF)
@@ -42,11 +44,11 @@ export default class ScheduleSlashCommand extends BaseSlashCommand {
         scheduleEmbed.addFields({
           name: String(`Period ${i} (${startTime.toLocaleTimeString()} - ${endTime.toLocaleTimeString()})`),
           value: String(`Class: ${periods[i].name}
-                        Room: ${rooms[i].room}
+                        Room: ${roomNums[i].room}
                         Teacher: ${periods[i].teacher.name}`)});
       }
 
-      return await interaction.reply({ embeds: [scheduleEmbed] });
+      return await interaction.editReply({ embeds: [scheduleEmbed] });
     }
 
     getSlashCommandJSON() {

@@ -1,16 +1,20 @@
 {
   "name": "grade-bot",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Bot to access StudentVUE within Discord",
   "main": "src/main.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/main.js",
-    "dev": "nodemon src/main.js"
+    "dev": "npx nodemon src/main.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "discord",
+    "bot",
+    "studentvue"
+  ],
+  "author": "therealcc",
   "license": "ISC",
   "dependencies": {
     "@discordjs/rest": "^1.5.0",

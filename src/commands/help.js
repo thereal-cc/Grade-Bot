@@ -17,7 +17,7 @@ export default class HelpSlashCommand extends BaseSlashCommand {
                 { name: '/login or /logout', value: 'Login & Logout of StudentVUE.' },
                 { name: '/studentinfo', value: 'Get Student Information.' },
                 { name: '/schedule', value: 'Get Student Schedule.'},
-                { name: '/gradebook', value: 'Get Student Grades.' },
+                { name: '/gradebook', value: "Filled Parameter: Shows gradebook for specified class period\nEmpty Parameter: Shows overall grade for each class" },
                 { name: 'GitHub', value: 'https://github.com/thereal-cc/Grade-Bot'})
             .setTimestamp()
             .setFooter({ text: `Requested by ${interaction.user.username}`, iconUrl: '' });

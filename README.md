@@ -1,6 +1,6 @@
 # Grade-Bot
 
-## Version: Beta 1.3
+## Version: Beta 1.4
 
 Grade-Bot Is Thinking...
 
@@ -8,13 +8,13 @@ Grade-Bot Is Thinking...
 
 View your grades, schedule, and more in Discord! This bot is entirely open source to maintain transparency, and demonstrate how Discord's API can be used to access other external API'S.
 
-## (Beta 1.3 Update)
+## (Beta 1.4 Update)
 
-- Fixed Bugs/General Improvements
+- /gradebook now shows the gradebook for a specific class (ex. /gradebook 2)
 
 ## Features
 
-- View your overall grades for each class
+- View your gradebook (Grades, Assignments, etc.)
 - View your schedule
 - View your general information
 - Login/Logout (Saved between sessions & Credentials can't be viewed by anyone but you)
